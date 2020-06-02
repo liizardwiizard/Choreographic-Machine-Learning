@@ -58,3 +58,18 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Motion capture FBX files
+*.fbx
+
+# Training summary files
+*.csv
+*.txt
+
+# Everything inside summaries, so not sharing training logs
+Assets/summaries/*
+
+# Everything inside models, so not sharing neural networks produced from training
+Assets/models/*
+
+# Everything inside Resources/Mocap, so not sharing motion capture database
+Assets/Resources/mocap/*
