@@ -1,23 +1,27 @@
-MotionCaptureRNN:
-    trainer: ppo
-    batch_size: 128
-    beta: 5.0e-3
-    buffer_size: 100
-    epsilon: 0.2
-    hidden_units: 128
-    lambd: 0.95
-    learning_rate: 0.5e-4
-    learning_rate_schedule: linear
-    max_steps: 5.0e6
-    memory_size: 128
-    normalize: false
-    num_epoch: 3
-    num_layers: 2
-    time_horizon: 64
-    sequence_length: 128
-    summary_freq: 1000
-    use_recurrent: true
-    reward_signals:
-        extrinsic:
-            strength: 1.0
-            gamma: 0.99
+behaviors:
+    MotionCaptureRNN:
+        trainer_type: ppo
+        hyperparameters:
+            batch_size: 128
+            beta: 5.0e-3
+            buffer_size: 100
+            learning_rate: 0.5e-4
+            epsilon: 0.2
+            lambd: 0.95
+            learning_rate_schedule: linear
+            num_epoch: 3
+        network_settings:
+            hidden_units: 256
+            normalize: false
+            num_layers: 2
+            memory:
+                memory_size: 128
+                sequence_length: 128
+        reward_signals:
+            extrinsic:
+                strength: 1.0
+                gamma: 0.99
+
+        max_steps: 5000000
+        time_horizon: 64
+        summary_freq: 1000

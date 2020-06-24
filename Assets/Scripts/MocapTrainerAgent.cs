@@ -111,7 +111,8 @@ public class MocapTrainerAgent : Agent
     public override void OnActionReceived(float[] vectorAction)
     {
         numSteps++;
-
+        Debug.Log(Time.timeScale);
+        UnityEngine.Debug.Log("normalizedTime " + GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime);
         // if the animation is not finished yet, do a small step
         if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime < normalizedAnimationEndTime)
         {
@@ -127,6 +128,7 @@ public class MocapTrainerAgent : Agent
         // if the animation is finished, end the episode
         else
         {
+            Debug.Log("end episode");
             numEpisodes++;
 
             if (vectorAction[0] == jointClassificationNumber)
